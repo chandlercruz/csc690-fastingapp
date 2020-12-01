@@ -1,7 +1,7 @@
 # CSC690 Final Project - Fasting App
 
 Chandler Cruz
-
+Chris Manaoat
 
 **Proposal**
 Our application will be a fasting app which will keep track of the user's daily fasts. The user will choose their fast (ex: 16:8, with 16 hours fasting and 8 hours of eating), and the app will use that setting to keep track of how much time is left in a user's fast. 
