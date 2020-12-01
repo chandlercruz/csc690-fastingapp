@@ -1,6 +1,7 @@
 # CSC690 Final Project - Fasting App
 
 Chandler Cruz
+
 Chris Manaoat
 
 **Proposal**
