@@ -15,7 +15,7 @@ class FastingDataViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var totalFastAmount: Int = 0
+    var totalFastAmount: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +26,17 @@ class FastingDataViewController: UIViewController, UITableViewDelegate, UITableV
         NotificationCenter.default.addObserver(self, selector: #selector(getFastList), name: FastListBrain.getList, object: nil)
         brain.getFastList()
         calcTotalFast()
-//        for fast in fastList {
-//            print("fast starts at \(fast.startTime) and ends at \(fast.endTime) for a total of \(fast.timeFasted) hours")
-//        }
-        
     }
     
     func calcTotalFast() {
-        var totalFastAmount: Double = 0
         var currFastAmount: Double = 0
         for element in FastList{
             currFastAmount = element.timeFasted
+            print(currFastAmount)
             totalFastAmount = totalFastAmount + currFastAmount
         }
     }
+    
     @objc func getFastList() {
         FastList = FastListBrain.FastList
     }
@@ -66,10 +63,10 @@ class FastingDataViewController: UIViewController, UITableViewDelegate, UITableV
         print(row)
         switch row{
         case 0:
-            cell.textLabel?.text = "Total hours fasted"
+            cell.textLabel?.text = "Total hours fasted \(totalFastAmount)"
         case 1:
-//            var averageFast = FastList.count
-            cell.textLabel?.text = "Average fast length"
+            var averageFast = totalFastAmount / Double(FastList.count)
+            cell.textLabel?.text = "Average fast length \(averageFast)"
         case 2:
             cell.textLabel?.text = "List of fasts"
         default:

@@ -44,8 +44,8 @@ class FastListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let row = indexPath.row
-        var startDate = fastList[row].startTime
-        var endDate = fastList[row].endTime
+        let startDate = fastList[row].startTime
+        let endDate = fastList[row].endTime
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = "\(startDate)\n\(endDate)"
         return cell
