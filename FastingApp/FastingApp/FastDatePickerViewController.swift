@@ -7,10 +7,27 @@
 
 import UIKit
 
+struct Fast {
+    var startTime: Date
+    var endTime: Date
+}
+
 class FastTimePickerViewController: UIViewController {
 
     @IBOutlet weak var startDate: UITextField!
     @IBOutlet weak var endDate: UITextField!
+    @IBOutlet weak var submitFast: UIButton!
+    
+    var userStartTime: Date? = nil
+    var userEndTime: Date? = nil
+    
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
+        if userStartTime != nil && userEndTime != nil {
+            let newFast = Fast(startTime: userStartTime!, endTime: userEndTime!)
+            
+            print("New Fast started at \(String(describing: newFast.startTime )) and ended at \(String(describing: newFast.endTime))")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +41,8 @@ extension FastTimePickerViewController: UITextFieldDelegate {
         self.startDatePicker()
         self.endDatePicker()
     }
+    
+    
 }
 
 extension FastTimePickerViewController {
@@ -73,6 +92,7 @@ extension FastTimePickerViewController {
             dateFormatter.dateStyle = .full
             dateFormatter.timeStyle = .medium
             startDate.text = dateFormatter.string(from: datePicker.date)
+            userStartTime = datePicker.date
             print(datePicker.date)
         }
         
@@ -91,6 +111,7 @@ extension FastTimePickerViewController {
             dateFormatter.dateStyle = .full
             dateFormatter.timeStyle = .medium
             endDate.text = dateFormatter.string(from: datePicker.date)
+            userEndTime = datePicker.date
             print(datePicker.date)
         }
         

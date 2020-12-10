@@ -64,11 +64,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vht-t6-sYk">
-                                <rect key="frame" x="16" y="222" width="382" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsW-ei-WbU">
                                 <rect key="frame" x="20" y="193" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,21 +71,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vht-t6-sYk">
+                                <rect key="frame" x="16" y="222" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyH-5g-6lL">
+                                <rect key="frame" x="150" y="327" width="114" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Submit Fast"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="xQk-PN-qw7" eventType="touchUpInside" id="wLH-jf-THb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qqj-Qj-ewh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Qqj-Qj-ewh" firstAttribute="trailing" secondItem="kyH-5g-6lL" secondAttribute="trailing" constant="150" id="55w-xA-cEV"/>
                             <constraint firstItem="vht-t6-sYk" firstAttribute="top" secondItem="PTK-H2-fqR" secondAttribute="bottom" constant="88" id="6zb-Uk-EYW"/>
                             <constraint firstItem="PTK-H2-fqR" firstAttribute="top" secondItem="Qqj-Qj-ewh" secondAttribute="top" constant="100" id="BHv-vM-Ym3"/>
                             <constraint firstItem="PTK-H2-fqR" firstAttribute="leading" secondItem="Qqj-Qj-ewh" secondAttribute="leading" constant="16" id="HRc-iX-OQ3"/>
+                            <constraint firstItem="kyH-5g-6lL" firstAttribute="leading" secondItem="Qqj-Qj-ewh" secondAttribute="leading" constant="150" id="PFa-T3-kvd"/>
                             <constraint firstItem="vht-t6-sYk" firstAttribute="leading" secondItem="Qqj-Qj-ewh" secondAttribute="leading" constant="16" id="eiT-0j-Qym"/>
                             <constraint firstItem="Qqj-Qj-ewh" firstAttribute="trailing" secondItem="PTK-H2-fqR" secondAttribute="trailing" constant="16" id="j4m-cq-swf"/>
+                            <constraint firstItem="kyH-5g-6lL" firstAttribute="top" secondItem="vht-t6-sYk" secondAttribute="bottom" constant="71" id="oQe-Do-GOA"/>
                             <constraint firstItem="Qqj-Qj-ewh" firstAttribute="trailing" secondItem="vht-t6-sYk" secondAttribute="trailing" constant="16" id="rkR-KO-PV6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="endDate" destination="vht-t6-sYk" id="CTT-pb-WA3"/>
                         <outlet property="startDate" destination="PTK-H2-fqR" id="W4Z-jx-Vgi"/>
+                        <outlet property="submitFast" destination="kyH-5g-6lL" id="XtU-s1-1OZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbc-01-egH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
