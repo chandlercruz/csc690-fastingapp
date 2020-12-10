@@ -7,12 +7,14 @@
 
 import UIKit
 import CoreData
+import MBCircularProgressBar
 
 class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     
     
     @IBOutlet weak var startTimeField: UITextField!
     @IBOutlet weak var startEndButton: UIButton!
+    @IBOutlet weak var progressBar: MBCircularProgressBarView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -21,6 +23,7 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
 
     var FastList2: [FastEntity] = []
     var FastList: [Fast] = []
+    var fastAmount = 16.0
     
     @IBAction func startEndButtonPressed(_ sender: UIButton) {
         print("start end button pressed!")
@@ -131,6 +134,20 @@ extension FastingTimerViewController {
             startTimeField.text = dateFormatter.string(from: datePicker.date)
             userHomeStartTime = datePicker.date
             print(datePicker.date)
+            if userHomeStartTime != nil {
+                UIView.animate(withDuration: 1.0) {
+                    let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.userHomeStartTime!, to: Date())
+                    let hoursDiff = Double(dateComponents.hour!)
+                    let minutesDiff = Double(dateComponents.minute!)
+                    let totalDiff: Double = hoursDiff + (minutesDiff/60.0)
+                    let progressAmount = CGFloat(totalDiff/self.fastAmount * 100.0)
+                    if progressAmount < 100.0 {
+                        self.progressBar.value = progressAmount
+                    } else {
+                        self.progressBar.value = 100.0
+                    }
+                }
+            }
         }
         startTimeField.resignFirstResponder()
     }
