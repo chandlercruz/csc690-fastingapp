@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     
@@ -13,10 +14,12 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     @IBOutlet weak var startTimeField: UITextField!
     @IBOutlet weak var startEndButton: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var userHomeStartTime: Date? = nil
     let brain = FastListBrain()
 
-    
+    var FastList2: [FastEntity] = []
     var FastList: [Fast] = []
     
     @IBAction func startEndButtonPressed(_ sender: UIButton) {
@@ -39,6 +42,18 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewFast), name: FastListBrain.listHasUpdated, object: nil)
         brain.addFastToList(newFastItem: newFast)
         
+        let newFastEntity = FastEntity(context: self.context)
+        newFastEntity.startTime = newFast.startTime
+        newFastEntity.endTime = newFast.endTime
+        newFastEntity.timeFasted = newFast.timeFasted
+        
+        do {
+            try self.context.save()
+            print("saving an item")
+        } catch {
+            
+        }
+        
         print("after fast \(FastList)")
 //        for fast in FastList {
 //            print("fast starts at \(fast.startTime) and ends at \(fast.endTime) for a total of \(fast.timeFasted) hours")
@@ -48,6 +63,21 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
         super.viewDidLoad()
         startTimeField.delegate = self
         
+        fetchData()
+    }
+    
+    func fetchData() {
+        do {
+            self.FastList2 = try context.fetch(FastEntity.fetchRequest())
+                for fast in FastList2 {
+                    let tempFastEntity = fast
+                    let tempFast = Fast(startTime: tempFastEntity.startTime!, endTime: tempFastEntity.endTime!, timeFasted: tempFastEntity.timeFasted)
+                    addFast(newFast: tempFast)
+                    print("pulling from core data")
+                }
+        } catch {
+            
+        }
         
     }
     
