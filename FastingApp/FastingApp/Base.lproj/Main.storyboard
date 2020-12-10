@@ -16,8 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-2N-gEb">
+                                <rect key="frame" x="16" y="491" width="116.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGZ-19-gYS">
+                                <rect key="frame" x="16" y="529" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4B-5u-zaN" customClass="MBCircularProgressBarView">
+                                <rect key="frame" x="57" y="144" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="aXz-zt-6Up"/>
+                                    <constraint firstAttribute="width" constant="300" id="aqT-Ib-o52"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pz-Tb-WMC">
-                                <rect key="frame" x="133" y="589" width="148" height="41"/>
+                                <rect key="frame" x="134" y="614" width="146" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Start/End Fast"/>
                                 <connections>
@@ -25,50 +44,26 @@
                                     <segue destination="xQk-PN-qw7" kind="presentation" id="elu-22-hRa"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGZ-19-gYS">
-                                <rect key="frame" x="16" y="539" width="382" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4B-5u-zaN" customClass="MBCircularProgressBarView">
-                                <rect key="frame" x="57" y="119" width="300" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="aXz-zt-6Up"/>
-                                    <constraint firstAttribute="width" constant="300" id="aqT-Ib-o52"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-2N-gEb">
-                                <rect key="frame" x="16" y="501" width="116.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGZ-19-gYS" secondAttribute="trailing" constant="16" id="12J-bD-7oT"/>
-                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="sfh-2N-gEb" secondAttribute="leading" id="45z-y7-xkA"/>
-                            <constraint firstItem="o4B-5u-zaN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5OW-Ps-dIJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Pz-Tb-WMC" secondAttribute="trailing" constant="133" id="90E-rV-pLK"/>
-                            <constraint firstItem="o4B-5u-zaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="CeI-Qj-HdB"/>
-                            <constraint firstItem="o4B-5u-zaN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="CzH-qx-0f9"/>
-                            <constraint firstItem="9Pz-Tb-WMC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="133" id="H2p-tV-VZD"/>
-                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="o4B-5u-zaN" secondAttribute="bottom" constant="120" id="HGF-xt-R0o"/>
-                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KyC-kh-v9a"/>
-                            <constraint firstItem="o4B-5u-zaN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UTb-XQ-qmE"/>
-                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="sfh-2N-gEb" secondAttribute="bottom" constant="8" id="d2W-Bv-C4y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGZ-19-gYS" secondAttribute="trailing" constant="16" id="dCR-ml-8ch"/>
-                            <constraint firstItem="9Pz-Tb-WMC" firstAttribute="top" secondItem="gGZ-19-gYS" secondAttribute="bottom" constant="16" id="gf3-tG-dWd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o4B-5u-zaN" secondAttribute="trailing" constant="57" id="iy9-2Z-ZuI"/>
-                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mNK-Zd-X6e"/>
-                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="mzh-mq-4Wa"/>
-                            <constraint firstItem="sfh-2N-gEb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ofd-9a-9xx"/>
+                            <constraint firstItem="o4B-5u-zaN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="7sg-z0-hLL"/>
+                            <constraint firstItem="9Pz-Tb-WMC" firstAttribute="top" secondItem="gGZ-19-gYS" secondAttribute="bottom" constant="51" id="C26-56-s8M"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="E7B-S8-Ode"/>
+                            <constraint firstItem="o4B-5u-zaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="Jwq-lz-zpX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Pz-Tb-WMC" secondAttribute="trailing" constant="134" id="LFq-Ri-FJK"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="sfh-2N-gEb" secondAttribute="bottom" constant="8" id="Lrk-Cg-1vf"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="sfh-2N-gEb" secondAttribute="leading" id="Lxa-8V-hP5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o4B-5u-zaN" secondAttribute="trailing" constant="57" id="Q26-d1-hst"/>
+                            <constraint firstItem="9Pz-Tb-WMC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="V3J-4R-oM5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGZ-19-gYS" secondAttribute="trailing" constant="16" id="dWq-eS-sR6"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="o4B-5u-zaN" secondAttribute="bottom" constant="85" id="w9I-Gj-M3R"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="TImer" id="shl-8x-Ngr"/>
                     <connections>
+                        <outlet property="progressBar" destination="o4B-5u-zaN" id="yxu-Bw-HP4"/>
                         <outlet property="startEndButton" destination="9Pz-Tb-WMC" id="eM9-TH-AjU"/>
                         <outlet property="startTimeField" destination="gGZ-19-gYS" id="H3E-Da-cr6"/>
                     </connections>
