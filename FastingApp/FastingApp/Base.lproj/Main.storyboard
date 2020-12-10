@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O9G-sK-KwZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O9G-sK-KwZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pz-Tb-WMC">
-                                <rect key="frame" x="133" y="145" width="148" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pz-Tb-WMC">
+                                <rect key="frame" x="133" y="589" width="148" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Start/End Fast"/>
                                 <connections>
@@ -26,23 +25,43 @@
                                     <segue destination="xQk-PN-qw7" kind="presentation" id="elu-22-hRa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-2N-gEb">
-                                <rect key="frame" x="16" y="61" width="125" height="23"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGZ-19-gYS">
+                                <rect key="frame" x="16" y="539" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4B-5u-zaN" customClass="MBCircularProgressBarView">
+                                <rect key="frame" x="57" y="119" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="aXz-zt-6Up"/>
+                                    <constraint firstAttribute="width" constant="300" id="aqT-Ib-o52"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-2N-gEb">
+                                <rect key="frame" x="16" y="501" width="116.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGZ-19-gYS">
-                                <rect key="frame" x="16" y="103" width="382" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sfh-2N-gEb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="LgB-CQ-LgD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGZ-19-gYS" secondAttribute="trailing" constant="16" id="12J-bD-7oT"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="sfh-2N-gEb" secondAttribute="leading" id="45z-y7-xkA"/>
+                            <constraint firstItem="o4B-5u-zaN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5OW-Ps-dIJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Pz-Tb-WMC" secondAttribute="trailing" constant="133" id="90E-rV-pLK"/>
+                            <constraint firstItem="o4B-5u-zaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="CeI-Qj-HdB"/>
+                            <constraint firstItem="o4B-5u-zaN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="CzH-qx-0f9"/>
+                            <constraint firstItem="9Pz-Tb-WMC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="133" id="H2p-tV-VZD"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="o4B-5u-zaN" secondAttribute="bottom" constant="120" id="HGF-xt-R0o"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KyC-kh-v9a"/>
+                            <constraint firstItem="o4B-5u-zaN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UTb-XQ-qmE"/>
+                            <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="sfh-2N-gEb" secondAttribute="bottom" constant="8" id="d2W-Bv-C4y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGZ-19-gYS" secondAttribute="trailing" constant="16" id="dCR-ml-8ch"/>
+                            <constraint firstItem="9Pz-Tb-WMC" firstAttribute="top" secondItem="gGZ-19-gYS" secondAttribute="bottom" constant="16" id="gf3-tG-dWd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o4B-5u-zaN" secondAttribute="trailing" constant="57" id="iy9-2Z-ZuI"/>
                             <constraint firstItem="gGZ-19-gYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mNK-Zd-X6e"/>
                             <constraint firstItem="gGZ-19-gYS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="mzh-mq-4Wa"/>
                             <constraint firstItem="sfh-2N-gEb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ofd-9a-9xx"/>
