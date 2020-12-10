@@ -63,12 +63,13 @@ class FastingDataViewController: UIViewController, UITableViewDelegate, UITableV
         print(row)
         switch row{
         case 0:
-            cell.textLabel?.text = "Total hours fasted \(totalFastAmount)"
+            cell.textLabel?.text = "Total hours fasted " + String(format: "%.2f", totalFastAmount)
         case 1:
             var averageFast = totalFastAmount / Double(FastList.count)
-            cell.textLabel?.text = "Average fast length \(averageFast)"
+            cell.textLabel?.text = "Average fast length " + String(format: "%.2f", averageFast) + " hours"
         case 2:
             cell.textLabel?.text = "List of fasts"
+            cell.accessoryType = .disclosureIndicator
         default:
             break
         }

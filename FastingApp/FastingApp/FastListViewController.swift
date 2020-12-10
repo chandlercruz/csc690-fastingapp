@@ -21,8 +21,12 @@ class FastListViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.title = "List of Fasts"
         NotificationCenter.default.addObserver(self, selector: #selector(getFastList), name: FastListBrain.getList, object: nil)
         brain.getFastList()
+        fastList.sort { (lhs: Fast, rhs: Fast) -> Bool in
+            return lhs.endTime > rhs.endTime
+        }
 //        print(fastList)
     }
     
@@ -46,8 +50,18 @@ class FastListViewController: UIViewController, UITableViewDelegate, UITableView
         let row = indexPath.row
         let startDate = fastList[row].startTime
         let endDate = fastList[row].endTime
+        
+        let dateFormatterIn = DateFormatter()
+        dateFormatterIn.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy h:MM a"
+        let fastLength = fastList[row].timeFasted
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = "\(startDate)\n\(endDate)"
+        cell.textLabel?.text = "Start: " + dateFormatterPrint.string(from: startDate) +
+            "\nEnd: " + dateFormatterPrint.string(from: endDate) +
+            "\nDuration of fast: " + String(format: "%.2f", fastLength) + " hours"
         return cell
     }
 }
