@@ -14,6 +14,8 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     @IBOutlet weak var startEndButton: UIButton!
     
     var userHomeStartTime: Date? = nil
+    let brain = FastListBrain()
+
     
     var FastList: [Fast] = []
     
@@ -31,8 +33,13 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     
     
     func addFast(newFast: Fast) {
-        FastList.append(newFast)
+        print("newfast \(newFast)")
+//        FastList.append(newFast)
         print("Current Fasts:")
+        NotificationCenter.default.addObserver(self, selector: #selector(addNewFast), name: FastListBrain.listHasUpdated, object: nil)
+        brain.addFastToList(newFastItem: newFast)
+        
+        print("after fast \(FastList)")
 //        for fast in FastList {
 //            print("fast starts at \(fast.startTime) and ends at \(fast.endTime) for a total of \(fast.timeFasted) hours")
 //        }
@@ -41,6 +48,14 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
         super.viewDidLoad()
         startTimeField.delegate = self
         
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc func addNewFast () {
+        FastList = FastListBrain.FastList
     }
 }
 

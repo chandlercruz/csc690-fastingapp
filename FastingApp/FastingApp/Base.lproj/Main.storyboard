@@ -187,26 +187,20 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-BD-Tkk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
-                                <items>
-                                    <navigationItem title="Title" id="pYm-td-QJU"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VlL-LZ-2mv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eSU-9c-pal" firstAttribute="top" secondItem="HAU-BD-Tkk" secondAttribute="bottom" id="H65-i1-QoV"/>
                             <constraint firstItem="eSU-9c-pal" firstAttribute="top" secondItem="VlL-LZ-2mv" secondAttribute="top" id="M0i-rP-q2a"/>
                             <constraint firstItem="VlL-LZ-2mv" firstAttribute="bottom" secondItem="eSU-9c-pal" secondAttribute="bottom" id="Sjg-cj-bTC"/>
+                            <constraint firstItem="eSU-9c-pal" firstAttribute="top" secondItem="VlL-LZ-2mv" secondAttribute="top" id="agK-B3-wEm"/>
                             <constraint firstItem="eSU-9c-pal" firstAttribute="leading" secondItem="VlL-LZ-2mv" secondAttribute="leading" id="c67-8I-PEa"/>
-                            <constraint firstItem="HAU-BD-Tkk" firstAttribute="top" secondItem="VlL-LZ-2mv" secondAttribute="top" id="hoL-M2-Mag"/>
-                            <constraint firstItem="HAU-BD-Tkk" firstAttribute="leading" secondItem="VlL-LZ-2mv" secondAttribute="leading" id="lbf-GG-g4F"/>
                             <constraint firstItem="VlL-LZ-2mv" firstAttribute="trailing" secondItem="eSU-9c-pal" secondAttribute="trailing" id="mwn-jP-P4c"/>
-                            <constraint firstItem="HAU-BD-Tkk" firstAttribute="trailing" secondItem="VlL-LZ-2mv" secondAttribute="trailing" id="r6r-Um-yND"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="eSU-9c-pal" id="uTq-yL-usP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvS-qg-jSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

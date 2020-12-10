@@ -19,6 +19,7 @@
 		37B6574B2582340500C50A91 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6574A2582340500C50A91 /* StateController.swift */; };
 		3F4276A025820B7100EA3243 /* FastingDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42769F25820B7100EA3243 /* FastingDataViewController.swift */; };
 		3F4276A625822D5900EA3243 /* FastListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4276A525822D5900EA3243 /* FastListViewController.swift */; };
+		3F4276AF25824D5700EA3243 /* FastListBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4276AE25824D5700EA3243 /* FastListBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		37B6574A2582340500C50A91 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
 		3F42769F25820B7100EA3243 /* FastingDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingDataViewController.swift; sourceTree = "<group>"; };
 		3F4276A525822D5900EA3243 /* FastListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastListViewController.swift; sourceTree = "<group>"; };
+		3F4276AE25824D5700EA3243 /* FastListBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastListBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				37B657042581E1AC00C50A91 /* AppDelegate.swift */,
 				37B657062581E1AC00C50A91 /* SceneDelegate.swift */,
 				37B657082581E1AC00C50A91 /* FastingTimerViewController.swift */,
+				3F4276AE25824D5700EA3243 /* FastListBrain.swift */,
 				37B657382581E2C300C50A91 /* FastDatePickerViewController.swift */,
 				37B6574A2582340500C50A91 /* StateController.swift */,
 				37B6570A2581E1AC00C50A91 /* Main.storyboard */,
@@ -274,6 +277,7 @@
 				37B6574B2582340500C50A91 /* StateController.swift in Sources */,
 				3F4276A025820B7100EA3243 /* FastingDataViewController.swift in Sources */,
 				37B657052581E1AC00C50A91 /* AppDelegate.swift in Sources */,
+				3F4276AF25824D5700EA3243 /* FastListBrain.swift in Sources */,
 				37B657392581E2C300C50A91 /* FastDatePickerViewController.swift in Sources */,
 				3F4276A625822D5900EA3243 /* FastListViewController.swift in Sources */,
 				37B657072581E1AC00C50A91 /* SceneDelegate.swift in Sources */,
