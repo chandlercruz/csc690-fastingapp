@@ -10,6 +10,11 @@ import UIKit
 struct Fast {
     var startTime: Date
     var endTime: Date
+    var timeFasted: Double
+}
+
+protocol FastTimePickerDelegate: AnyObject {
+    func addFast(newFast: Fast)
 }
 
 class FastTimePickerViewController: UIViewController {
@@ -21,16 +26,31 @@ class FastTimePickerViewController: UIViewController {
     var userStartTime: Date? = nil
     var userEndTime: Date? = nil
     
+    weak var delegate:FastTimePickerDelegate? = nil
+    
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         if userStartTime != nil && userEndTime != nil {
-            let newFast = Fast(startTime: userStartTime!, endTime: userEndTime!)
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: userStartTime!, to: userEndTime!)
+            let hoursDiff = Double(dateComponents.hour!)
+            let minutesDiff = Double(dateComponents.minute!)
+            let totalDiff: Double = hoursDiff + (minutesDiff/60.0)
+            
+            let newFast = Fast(startTime: userStartTime!, endTime: userEndTime!, timeFasted: totalDiff)
             
             print("New Fast started at \(String(describing: newFast.startTime )) and ended at \(String(describing: newFast.endTime))")
+            delegate?.addFast(newFast: newFast)
+            dismiss(animated: true, completion: nil)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if userStartTime != nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .full
+            dateFormatter.timeStyle = .medium
+            startDate.text = dateFormatter.string(from: userStartTime!)
+        }
         startDate.delegate = self
         endDate.delegate = self
     }
