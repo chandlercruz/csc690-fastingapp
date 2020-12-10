@@ -45,6 +45,40 @@
             </objects>
             <point key="canvasLocation" x="209" y="-90"/>
         </scene>
+        <!--Data-->
+        <scene sceneID="csl-lj-B8F">
+            <objects>
+                <viewController id="jU3-m6-R9k" customClass="FastingDataViewController" customModule="FastingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H66-8P-POb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mwd-1M-4Vo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rZn-Wk-ygp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rZn-Wk-ygp" firstAttribute="bottom" secondItem="mwd-1M-4Vo" secondAttribute="bottom" id="3Lj-MB-cwa"/>
+                            <constraint firstItem="mwd-1M-4Vo" firstAttribute="leading" secondItem="rZn-Wk-ygp" secondAttribute="leading" id="NPy-k3-ho1"/>
+                            <constraint firstItem="mwd-1M-4Vo" firstAttribute="top" secondItem="rZn-Wk-ygp" secondAttribute="top" id="WPY-H4-f9f"/>
+                            <constraint firstItem="mwd-1M-4Vo" firstAttribute="leading" secondItem="rZn-Wk-ygp" secondAttribute="leading" id="YaC-e5-yVH"/>
+                            <constraint firstItem="rZn-Wk-ygp" firstAttribute="bottom" secondItem="mwd-1M-4Vo" secondAttribute="bottom" id="dOO-tP-Zjj"/>
+                            <constraint firstItem="rZn-Wk-ygp" firstAttribute="trailing" secondItem="mwd-1M-4Vo" secondAttribute="trailing" id="hcG-7t-l1J"/>
+                            <constraint firstItem="rZn-Wk-ygp" firstAttribute="trailing" secondItem="mwd-1M-4Vo" secondAttribute="trailing" id="oo2-DY-xrZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Data" id="R0C-Tb-CKy"/>
+                    <connections>
+                        <outlet property="tableView" destination="mwd-1M-4Vo" id="yP5-jt-7Sb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yK-JP-J9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2140.5797101449275" y="-90.401785714285708"/>
+        </scene>
         <!--Timer-->
         <scene sceneID="DfQ-Ht-w08">
             <objects>
@@ -111,39 +145,6 @@
             </objects>
             <point key="canvasLocation" x="-210" y="645"/>
         </scene>
-        <!--Data-->
-        <scene sceneID="YpI-US-Zwm">
-            <objects>
-                <viewController id="1Ee-Ji-RCy" customClass="FastingDataViewController" customModule="FastingApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J7t-iq-FeC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aST-Zd-f3y">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="eYC-XU-Vdd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="aST-Zd-f3y" firstAttribute="top" secondItem="eYC-XU-Vdd" secondAttribute="top" id="QRO-ms-rRi"/>
-                            <constraint firstItem="aST-Zd-f3y" firstAttribute="leading" secondItem="eYC-XU-Vdd" secondAttribute="leading" id="mXJ-4o-xEU"/>
-                            <constraint firstItem="eYC-XU-Vdd" firstAttribute="trailing" secondItem="aST-Zd-f3y" secondAttribute="trailing" id="qTG-ff-4Mm"/>
-                            <constraint firstItem="eYC-XU-Vdd" firstAttribute="bottom" secondItem="aST-Zd-f3y" secondAttribute="bottom" id="vPE-wt-IMX"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Data" id="rrS-kw-2zO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="HeaderLabelCell" destination="aST-Zd-f3y" id="wFB-RS-0eE"/>
-                        <outlet property="tableView" destination="aST-Zd-f3y" id="Bb2-yS-23Y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u3V-GM-cIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1395.6521739130435" y="-90.401785714285708"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YP1-6r-3vx">
             <objects>
@@ -155,12 +156,59 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WW4-2s-5J3"/>
-                        <segue destination="1Ee-Ji-RCy" kind="relationship" relationship="viewControllers" id="a3N-yX-IWL"/>
+                        <segue destination="wyM-vD-dHl" kind="relationship" relationship="viewControllers" id="jqe-Lt-UEv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwL-nS-mke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889.85507246376824" y="-845.08928571428567"/>
+        </scene>
+        <!--Fast List View Controller-->
+        <scene sceneID="P1k-hC-yvH">
+            <objects>
+                <viewController storyboardIdentifier="FastListViewController" id="ryV-ai-v4Z" customClass="FastListViewController" customModule="FastingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="66X-Ix-VZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZY-lU-1gH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="List of Fasts" id="An7-1q-s9o"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="d9j-oz-12v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tZY-lU-1gH" secondAttribute="trailing" id="KcU-As-Idp"/>
+                            <constraint firstItem="tZY-lU-1gH" firstAttribute="leading" secondItem="d9j-oz-12v" secondAttribute="leading" id="SqQ-yc-GVk"/>
+                            <constraint firstItem="tZY-lU-1gH" firstAttribute="top" secondItem="d9j-oz-12v" secondAttribute="top" id="gen-VW-Bhb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbh-5w-KXc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039.130434782609" y="-90.401785714285708"/>
+        </scene>
+        <!--Data-->
+        <scene sceneID="iKB-gF-9CR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wyM-vD-dHl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Data" id="bfj-pt-DlH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Asg-yj-xOu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jU3-m6-R9k" kind="relationship" relationship="rootViewController" id="Nkj-FN-jCF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hyg-XU-4do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230.4347826086957" y="-90.401785714285708"/>
         </scene>
     </scenes>
     <resources>
