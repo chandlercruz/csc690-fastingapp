@@ -12,6 +12,10 @@ struct Fast {
     var endTime: Date
 }
 
+protocol FastTimePickerDelegate: AnyObject {
+    func addFast(newFast: Fast)
+}
+
 class FastTimePickerViewController: UIViewController {
 
     @IBOutlet weak var startDate: UITextField!
@@ -21,16 +25,28 @@ class FastTimePickerViewController: UIViewController {
     var userStartTime: Date? = nil
     var userEndTime: Date? = nil
     
+    weak var delegate:FastTimePickerDelegate? = nil
+    
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         if userStartTime != nil && userEndTime != nil {
             let newFast = Fast(startTime: userStartTime!, endTime: userEndTime!)
             
             print("New Fast started at \(String(describing: newFast.startTime )) and ended at \(String(describing: newFast.endTime))")
+            delegate?.addFast(newFast: newFast)
+            dismiss(animated: true, completion: nil)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("CRAZY MAN")
+        if userStartTime != nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .full
+            dateFormatter.timeStyle = .medium
+            startDate.text = dateFormatter.string(from: userStartTime!)
+            print("CRAZY MAN2")
+        }
         startDate.delegate = self
         endDate.delegate = self
     }
