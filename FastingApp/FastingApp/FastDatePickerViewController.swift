@@ -7,56 +7,115 @@
 
 import UIKit
 
+struct Fast {
+    var startTime: Date
+    var endTime: Date
+}
+
 class FastTimePickerViewController: UIViewController {
 
-    @IBOutlet weak var txtDate: UITextField!
+    @IBOutlet weak var startDate: UITextField!
+    @IBOutlet weak var endDate: UITextField!
+    @IBOutlet weak var submitFast: UIButton!
+    
+    var userStartTime: Date? = nil
+    var userEndTime: Date? = nil
+    
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
+        if userStartTime != nil && userEndTime != nil {
+            let newFast = Fast(startTime: userStartTime!, endTime: userEndTime!)
+            
+            print("New Fast started at \(String(describing: newFast.startTime )) and ended at \(String(describing: newFast.endTime))")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtDate.delegate = self
+        startDate.delegate = self
+        endDate.delegate = self
     }
 }
 
 extension FastTimePickerViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.openDatePicker()
+        self.startDatePicker()
+        self.endDatePicker()
     }
+    
+    
 }
 
 extension FastTimePickerViewController {
-    func openDatePicker() {
+    func startDatePicker() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
         datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
         datePicker.addTarget(self, action: #selector(self.datePickerHandler(datePicker:)), for: .valueChanged)
-        txtDate.inputView = datePicker //keyboard
+        startDate.inputView = datePicker //keyboard
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y:0, width: self.view.frame.width, height: 60))
         
-        let cancelBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelBtnClick))
-        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClick))
+        let cancelBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelBtnClickStart))
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClickStart))
         let flexibleBtn = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolbar.setItems([cancelBtn, flexibleBtn, doneBtn], animated: false)
-        txtDate.inputAccessoryView = toolbar
+        startDate.inputAccessoryView = toolbar
+        
+    }
+    
+    func endDatePicker() {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        datePicker.addTarget(self, action: #selector(self.datePickerHandler(datePicker:)), for: .valueChanged)
+        endDate.inputView = datePicker //keyboard
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y:0, width: self.view.frame.width, height: 60))
+        
+        let cancelBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelBtnClickEnd))
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneBtnClickEnd))
+        let flexibleBtn = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([cancelBtn, flexibleBtn, doneBtn], animated: false)
+        endDate.inputAccessoryView = toolbar
         
     }
     
     @objc
-    func cancelBtnClick() {
-        txtDate.resignFirstResponder()
+    func cancelBtnClickStart() {
+        startDate.resignFirstResponder()
     }
     
     @objc
-    func doneBtnClick() {
-        if let datePicker = txtDate.inputView as? UIDatePicker{
+    func doneBtnClickStart() {
+        if let datePicker = startDate.inputView as? UIDatePicker{
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .full
             dateFormatter.timeStyle = .medium
-            txtDate.text = dateFormatter.string(from: datePicker.date)
+            startDate.text = dateFormatter.string(from: datePicker.date)
+            userStartTime = datePicker.date
             print(datePicker.date)
         }
         
-        txtDate.resignFirstResponder()
+        startDate.resignFirstResponder()
+    }
+    
+    @objc
+    func cancelBtnClickEnd() {
+        endDate.resignFirstResponder()
+    }
+    
+    @objc
+    func doneBtnClickEnd() {
+        if let datePicker = endDate.inputView as? UIDatePicker{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .full
+            dateFormatter.timeStyle = .medium
+            endDate.text = dateFormatter.string(from: datePicker.date)
+            userEndTime = datePicker.date
+            print(datePicker.date)
+        }
+        
+        endDate.resignFirstResponder()
     }
     
     @objc func datePickerHandler(datePicker: UIDatePicker) {
