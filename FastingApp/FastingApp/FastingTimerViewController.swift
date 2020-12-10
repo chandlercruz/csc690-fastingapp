@@ -9,9 +9,10 @@ import UIKit
 import CoreData
 import MBCircularProgressBar
 
-class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
+class FastingTimerViewController: UIViewController,  FastTimePickerDelegate {
     
     
+    @IBOutlet weak var fastAmountField: UITextField!
     @IBOutlet weak var startTimeField: UITextField!
     @IBOutlet weak var startEndButton: UIButton!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
@@ -68,6 +69,8 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         startTimeField.delegate = self
+        fastAmountField.delegate = self
+        self.doneButtonOnKeyboard()
         
         fetchData()
     }
@@ -94,6 +97,42 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     }
     @objc func addNewFast () {
         FastList = FastListBrain.FastList
+    }
+    
+    func doneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexible, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        fastAmountField.inputAccessoryView = doneToolbar
+        
+    }
+    @objc func doneButtonAction() {
+        fastAmountField.resignFirstResponder()
+        let text = fastAmountField.text
+        self.fastAmount = Double(text ?? "16.0")!
+        updateBar()
+    }
+    
+    func updateBar() {
+        if userHomeStartTime != nil {
+            UIView.animate(withDuration: 1.0) {
+                let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.userHomeStartTime!, to: Date())
+                let hoursDiff = Double(dateComponents.hour!)
+                let minutesDiff = Double(dateComponents.minute!)
+                let totalDiff: Double = hoursDiff + (minutesDiff/60.0)
+                let progressAmount = CGFloat(totalDiff/self.fastAmount * 100.0)
+                if progressAmount < 100.0 {
+                    self.progressBar.value = progressAmount
+                } else {
+                    self.progressBar.value = 100.0
+                }
+            }
+        }
     }
 }
 
@@ -134,20 +173,7 @@ extension FastingTimerViewController {
             startTimeField.text = dateFormatter.string(from: datePicker.date)
             userHomeStartTime = datePicker.date
             print(datePicker.date)
-            if userHomeStartTime != nil {
-                UIView.animate(withDuration: 1.0) {
-                    let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.userHomeStartTime!, to: Date())
-                    let hoursDiff = Double(dateComponents.hour!)
-                    let minutesDiff = Double(dateComponents.minute!)
-                    let totalDiff: Double = hoursDiff + (minutesDiff/60.0)
-                    let progressAmount = CGFloat(totalDiff/self.fastAmount * 100.0)
-                    if progressAmount < 100.0 {
-                        self.progressBar.value = progressAmount
-                    } else {
-                        self.progressBar.value = 100.0
-                    }
-                }
-            }
+            updateBar()
         }
         startTimeField.resignFirstResponder()
     }
