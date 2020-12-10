@@ -33,9 +33,9 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     func addFast(newFast: Fast) {
         FastList.append(newFast)
         print("Current Fasts:")
-        for fast in FastList {
-            print("fast starts at \(fast.startTime) and ends at \(fast.endTime)")
-        }
+//        for fast in FastList {
+//            print("fast starts at \(fast.startTime) and ends at \(fast.endTime) for a total of \(fast.timeFasted) hours")
+//        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

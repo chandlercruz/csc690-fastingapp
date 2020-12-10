@@ -16,6 +16,7 @@
 		37B6571C2581E1C200C50A91 /* FastingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6571B2581E1C200C50A91 /* FastingAppTests.swift */; };
 		37B657272581E1C200C50A91 /* FastingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B657262581E1C200C50A91 /* FastingAppUITests.swift */; };
 		37B657392581E2C300C50A91 /* FastDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B657382581E2C300C50A91 /* FastDatePickerViewController.swift */; };
+		37B6574B2582340500C50A91 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6574A2582340500C50A91 /* StateController.swift */; };
 		3F4276A025820B7100EA3243 /* FastingDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42769F25820B7100EA3243 /* FastingDataViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		37B657262581E1C200C50A91 /* FastingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingAppUITests.swift; sourceTree = "<group>"; };
 		37B657282581E1C200C50A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B657382581E2C300C50A91 /* FastDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastDatePickerViewController.swift; sourceTree = "<group>"; };
+		37B6574A2582340500C50A91 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
 		3F42769F25820B7100EA3243 /* FastingDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				37B657062581E1AC00C50A91 /* SceneDelegate.swift */,
 				37B657082581E1AC00C50A91 /* FastingTimerViewController.swift */,
 				37B657382581E2C300C50A91 /* FastDatePickerViewController.swift */,
+				37B6574A2582340500C50A91 /* StateController.swift */,
 				37B6570A2581E1AC00C50A91 /* Main.storyboard */,
 				3F42769F25820B7100EA3243 /* FastingDataViewController.swift */,
 				37B6570D2581E1C100C50A91 /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B657092581E1AC00C50A91 /* FastingTimerViewController.swift in Sources */,
+				37B6574B2582340500C50A91 /* StateController.swift in Sources */,
 				3F4276A025820B7100EA3243 /* FastingDataViewController.swift in Sources */,
 				37B657052581E1AC00C50A91 /* AppDelegate.swift in Sources */,
 				37B657392581E2C300C50A91 /* FastDatePickerViewController.swift in Sources */,
