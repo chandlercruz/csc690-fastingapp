@@ -70,6 +70,7 @@ extension FastTimePickerViewController {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
         datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        datePicker.maximumDate = Date()
         datePicker.addTarget(self, action: #selector(self.datePickerHandler(datePicker:)), for: .valueChanged)
         startDate.inputView = datePicker //keyboard
         
@@ -87,6 +88,9 @@ extension FastTimePickerViewController {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
         datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        if userStartTime != nil {
+            datePicker.minimumDate = userStartTime
+        }
         datePicker.addTarget(self, action: #selector(self.datePickerHandler(datePicker:)), for: .valueChanged)
         endDate.inputView = datePicker //keyboard
         

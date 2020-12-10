@@ -47,6 +47,8 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
         newFastEntity.endTime = newFast.endTime
         newFastEntity.timeFasted = newFast.timeFasted
         
+        //let fastEntityToRemove =
+        
         do {
             try self.context.save()
             print("saving an item")
@@ -59,6 +61,7 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
 //            print("fast starts at \(fast.startTime) and ends at \(fast.endTime) for a total of \(fast.timeFasted) hours")
 //        }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startTimeField.delegate = self
@@ -72,7 +75,9 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
                 for fast in FastList2 {
                     let tempFastEntity = fast
                     let tempFast = Fast(startTime: tempFastEntity.startTime!, endTime: tempFastEntity.endTime!, timeFasted: tempFastEntity.timeFasted)
-                    addFast(newFast: tempFast)
+                    NotificationCenter.default.addObserver(self, selector: #selector(addNewFast), name: FastListBrain.listHasUpdated, object: nil)
+                    brain.addFastToList(newFastItem: tempFast)
+                    
                     print("pulling from core data")
                 }
         } catch {
@@ -100,6 +105,7 @@ extension FastingTimerViewController {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.maximumDate = Date()
         datePicker.addTarget(self, action: #selector(self.datePickerHandler(datePicker:)), for: .valueChanged)
         startTimeField.inputView = datePicker
         

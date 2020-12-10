@@ -20,6 +20,7 @@
 		37B657B2258289DB00C50A91 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37B657B0258289DB00C50A91 /* DataModel.xcdatamodeld */; };
 		37B657B825828D8E00C50A91 /* FastEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B657B625828D8E00C50A91 /* FastEntity+CoreDataClass.swift */; };
 		37B657B925828D8E00C50A91 /* FastEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B657B725828D8E00C50A91 /* FastEntity+CoreDataProperties.swift */; };
+		37B657C325829EEF00C50A91 /* DataModel2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37B657C125829EEF00C50A91 /* DataModel2.xcdatamodeld */; };
 		3F4276A025820B7100EA3243 /* FastingDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42769F25820B7100EA3243 /* FastingDataViewController.swift */; };
 		3F4276A625822D5900EA3243 /* FastListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4276A525822D5900EA3243 /* FastListViewController.swift */; };
 		3F4276AF25824D5700EA3243 /* FastListBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4276AE25824D5700EA3243 /* FastListBrain.swift */; };
@@ -62,6 +63,7 @@
 		37B657B1258289DB00C50A91 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		37B657B625828D8E00C50A91 /* FastEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FastEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		37B657B725828D8E00C50A91 /* FastEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FastEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		37B657C225829EEF00C50A91 /* DataModel2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel2.xcdatamodel; sourceTree = "<group>"; };
 		3F42769F25820B7100EA3243 /* FastingDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingDataViewController.swift; sourceTree = "<group>"; };
 		3F4276A525822D5900EA3243 /* FastListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastListViewController.swift; sourceTree = "<group>"; };
 		3F4276AE25824D5700EA3243 /* FastListBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastListBrain.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				37B6570F2581E1C100C50A91 /* LaunchScreen.storyboard */,
 				37B657122581E1C100C50A91 /* Info.plist */,
 				37B657B0258289DB00C50A91 /* DataModel.xcdatamodeld */,
+				37B657C125829EEF00C50A91 /* DataModel2.xcdatamodeld */,
 			);
 			path = FastingApp;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				37B657052581E1AC00C50A91 /* AppDelegate.swift in Sources */,
 				3F4276AF25824D5700EA3243 /* FastListBrain.swift in Sources */,
 				37B657392581E2C300C50A91 /* FastDatePickerViewController.swift in Sources */,
+				37B657C325829EEF00C50A91 /* DataModel2.xcdatamodeld in Sources */,
 				37B657B2258289DB00C50A91 /* DataModel.xcdatamodeld in Sources */,
 				3F4276A625822D5900EA3243 /* FastListViewController.swift in Sources */,
 				37B657072581E1AC00C50A91 /* SceneDelegate.swift in Sources */,
@@ -650,6 +654,16 @@
 			);
 			currentVersion = 37B657B1258289DB00C50A91 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		37B657C125829EEF00C50A91 /* DataModel2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37B657C225829EEF00C50A91 /* DataModel2.xcdatamodel */,
+			);
+			currentVersion = 37B657C225829EEF00C50A91 /* DataModel2.xcdatamodel */;
+			path = DataModel2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
