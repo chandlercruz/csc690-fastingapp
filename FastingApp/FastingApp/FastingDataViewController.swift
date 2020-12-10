@@ -11,8 +11,9 @@ class FastingDataViewController: UIViewController, UITableViewDelegate, UITableV
     var fastingTimerViewController: FastingTimerViewController?
     
     
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     var fastList: [Fast] {
         return fastingTimerViewController?.FastList ?? []
     }
