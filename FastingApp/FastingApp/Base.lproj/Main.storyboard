@@ -38,12 +38,25 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pz-Tb-WMC">
                                 <rect key="frame" x="134" y="614" width="146" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Start/End Fast"/>
+                                <state key="normal" title="End Fast"/>
                                 <connections>
                                     <action selector="startEndButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nlp-ly-7m4"/>
                                     <segue destination="xQk-PN-qw7" kind="presentation" id="elu-22-hRa"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="16" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBT-OB-Vwn">
+                                <rect key="frame" x="212" y="54" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours Fasting:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j34-3a-oAQ">
+                                <rect key="frame" x="61" y="57" width="143" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,6 +76,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="TImer" id="shl-8x-Ngr"/>
                     <connections>
+                        <outlet property="fastAmountField" destination="LBT-OB-Vwn" id="DV0-nR-3me"/>
                         <outlet property="progressBar" destination="o4B-5u-zaN" id="yxu-Bw-HP4"/>
                         <outlet property="startEndButton" destination="9Pz-Tb-WMC" id="eM9-TH-AjU"/>
                         <outlet property="startTimeField" destination="gGZ-19-gYS" id="H3E-Da-cr6"/>
