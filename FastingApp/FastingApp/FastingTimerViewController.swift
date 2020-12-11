@@ -19,7 +19,7 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var userHomeStartTime: Date? = nil
-    let brain = FastListBrain()
+    let brain = FastListBrain() // instance for brain model
 
     var FastList2: [FastEntity] = []
     var FastList: [Fast] = []
@@ -42,8 +42,8 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
         print("newfast \(newFast)")
 //        FastList.append(newFast)
         print("Current Fasts:")
-        NotificationCenter.default.addObserver(self, selector: #selector(addNewFast), name: FastListBrain.listHasUpdated, object: nil)
-        brain.addFastToList(newFastItem: newFast)
+        NotificationCenter.default.addObserver(self, selector: #selector(addNewFast), name: FastListBrain.listHasUpdated, object: nil) // subscribes to channel updating the list
+        brain.addFastToList(newFastItem: newFast) // requests to update the list with item
         
         let newFastEntity = FastEntity(context: self.context)
         newFastEntity.startTime = newFast.startTime
@@ -90,10 +90,10 @@ class FastingTimerViewController: UIViewController, FastTimePickerDelegate {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self) // unsubscribes from nc
     }
     @objc func addNewFast () {
-        FastList = FastListBrain.FastList
+        FastList = FastListBrain.FastList // copies over the list
     }
 }
 
